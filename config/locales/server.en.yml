@@ -1,0 +1,4 @@
+en:
+  site_settings:
+    discourse_onedrive_picker_enabled: "Enable Discourse OneDrive Picker"
+    discourse_onedrive_azure_client_id: "Azure Application Client ID"
