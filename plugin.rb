@@ -24,6 +24,6 @@ after_initialize do
 
   Discourse::Application.routes.append do
     mount ::DiscourseOneDrivePicker::Engine, at: '/'
-    get "onedrive" => "groups#index"
+    get "onedrive-picker" => "groups#index"
   end
 end

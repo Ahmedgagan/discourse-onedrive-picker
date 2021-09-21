@@ -1,7 +1,10 @@
-discourse_reactions:
+discourse_onedrive_picker:
   discourse_onedrive_picker_enabled:
     default: true
     client: true
-  discourse_onedrive_azure_client_id:
+  discourse_onedrive_picker_azure_client_id:
+    default: ''
+    client: true
+  discourse_onedrive_picker_site_base_url:
     default: ''
     client: true

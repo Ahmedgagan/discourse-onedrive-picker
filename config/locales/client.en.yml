@@ -3,3 +3,4 @@ en:
     onedrive:
       picker:
         title: 'OneDrive Picker'
+        error: "Can't open Onedrive picker.\nPlease make sure you have value in discourse_onedrive_picker_site_base_url & discourse_onedrive_picker_azure_client_id site settings"
