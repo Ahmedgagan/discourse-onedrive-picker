@@ -1,6 +1,7 @@
 import { withPluginApi } from "discourse/lib/plugin-api";
 import loadScript from "discourse/lib/load-script";
 import bootbox from "bootbox";
+import { getAbsoluteURL } from "discourse-common/lib/get-url";
 
 const PLUGIN_ID = "discourse-onedrive-picker";
 
@@ -8,7 +9,7 @@ function initializeDiscourseOneDrivePicker(api) {
   const siteSettings = api.container.lookup("site-settings:main");
 
   function openDrive(e) {
-    if (!siteSettings.discourse_onedrive_picker_azure_client_id || !siteSettings.discourse_onedrive_picker_site_base_url) {
+    if (!siteSettings.discourse_onedrive_picker_azure_client_id) {
       bootbox.alert(I18n.t("onedrive.picker.error"));
 
       return;
@@ -21,7 +22,7 @@ function initializeDiscourseOneDrivePicker(api) {
         clientId: siteSettings.discourse_onedrive_picker_azure_client_id,
         action: "share",
         advanced: {
-          redirectUri: `${siteSettings.discourse_onedrive_picker_site_base_url}/onedrive-picker`,
+          redirectUri: getAbsoluteURL('/onedrive-picker'),
         },
         success: function (files) {
           e.addText(files.value[0].permissions[0].link.webUrl);

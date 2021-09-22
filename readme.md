@@ -37,4 +37,3 @@ Now, Open Composer & click to **Cloud** Icon & Go with the flow to enjoy your On
 
 ## Site Settings
 - **discourse_onedrive_picker_azure_client_id**: Add Azure Application Client ID
-- **discourse_onedrive_picker_site_base_url**: Add base url of your website. eg: http://localhost:4200. Make sure you add full url including http/https.
