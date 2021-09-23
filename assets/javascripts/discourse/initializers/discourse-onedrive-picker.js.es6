@@ -26,11 +26,12 @@ function initializeDiscourseOneDrivePicker(api) {
         advanced: {
           redirectUri: getAbsoluteURL('/onedrive-picker'),
           createLinkParameters: { 
+            type: "view",
             scope: "anonymous" 
           }
         },
         success: function (files) {
-          files.forEach(file => {
+          files.value.forEach(file => {
             e.addText(file.permissions[0].link.webUrl);
           });
         },
