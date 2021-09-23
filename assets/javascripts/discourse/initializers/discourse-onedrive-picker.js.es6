@@ -21,11 +21,18 @@ function initializeDiscourseOneDrivePicker(api) {
       var odOptions = {
         clientId: siteSettings.discourse_onedrive_picker_azure_client_id,
         action: "share",
+        viewType: "all",
+        multiSelect: true,
         advanced: {
           redirectUri: getAbsoluteURL('/onedrive-picker'),
+          createLinkParameters: { 
+            scope: "anonymous" 
+          }
         },
         success: function (files) {
-          e.addText(files.value[0].permissions[0].link.webUrl);
+          files.forEach(file => {
+            e.addText(file.permissions[0].link.webUrl);
+          });
         },
         cancel: function () {},
         error: function (error) {},
