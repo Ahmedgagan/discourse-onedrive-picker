@@ -24,16 +24,16 @@ function initializeDiscourseOneDrivePicker(api) {
         viewType: "all",
         multiSelect: true,
         advanced: {
-          redirectUri: getAbsoluteURL('/onedrive-picker'),
-          createLinkParameters: { 
+          redirectUri: getAbsoluteURL("/onedrive-picker"),
+          createLinkParameters: {
             type: "view",
-            scope: "anonymous" 
-          }
+            scope: "anonymous",
+          },
         },
         success: function (files) {
-          files.value.forEach(file => {
-            e.addText(file.permissions[0].link.webUrl);
-          });
+          let urls = files.value.map((file) => file.permissions[0].link.webUrl);
+
+          return e.addText(`${urls.join("\n")}\n`);
         },
         cancel: function () {},
         error: function (error) {},
@@ -50,9 +50,7 @@ function initializeDiscourseOneDrivePicker(api) {
       group: "insertions",
       icon: "cloud",
       title: "onedrive.picker.title",
-      perform: (e) => {
-        openDrive(e);
-      },
+      perform: (e) => openDrive(e),
     });
   });
 }
