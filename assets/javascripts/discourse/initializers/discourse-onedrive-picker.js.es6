@@ -31,7 +31,11 @@ function initializeDiscourseOneDrivePicker(api) {
           },
         },
         success: function (files) {
-          let urls = files.value.map((file) => file.permissions[0].link.webUrl);
+          let urls = files.value.map((file) =>
+            siteSettings.discourse_onedrive_picker_use_markdown_url
+              ? `[${file.name}](${file.permissions[0].link.webUrl})`
+              : file.permissions[0].link.webUrl
+          );
 
           return e.addText(`${urls.join("\n")}\n`);
         },

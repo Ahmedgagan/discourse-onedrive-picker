@@ -5,3 +5,6 @@ discourse_onedrive_picker:
   discourse_onedrive_picker_azure_client_id:
     default: ''
     client: true
+  discourse_onedrive_picker_use_markdown_url:
+    default: false
+    client: true

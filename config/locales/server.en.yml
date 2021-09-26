@@ -2,3 +2,4 @@ en:
   site_settings:
     discourse_onedrive_picker_enabled: "Enable Discourse OneDrive Picker"
     discourse_onedrive_picker_azure_client_id: "Azure Application Client ID"
+    discourse_onedrive_picker_use_markdown_url: "Enable this if your are using organization account"
